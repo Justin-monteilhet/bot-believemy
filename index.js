@@ -5,7 +5,7 @@ const token = require("./Config/token.js").token;
 const client = new Discord.Client();
 const config = require("./Config/config.js");
 
-client.login(token).then(logger.log(`Bon démarré`, 'log'));
+client.login(token).then(logger.log(`Bot démarré`, 'log'));
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -18,9 +18,9 @@ fs.readdirSync("./Commands/").forEach(dir => {
 
         if (pull.help.name) {
             client.commands.set(pull.help.name, pull);
-            logger.log(`La commande ${pull.help.name} à bien été chagée`, 'ready')
+            logger.log(`La commande ${pull.help.name} a correctement chargé`, 'ready')
         } else {
-            logger.log(`La commande ${file} n'es pas chargée, il dois manquer une info dans le module 'help'`, 'error')
+            logger.log(`La commande ${file} n'a pas réussi  charger, il doit manquer une info dans le module 'help'`, 'error')
         }
         if (pull.help.aliases){
             pull.help.aliases.forEach(alias => {
